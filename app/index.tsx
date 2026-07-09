@@ -1,4 +1,4 @@
-
+/**
  * ✨ WISHLY — a massive single-file wishlist app
  * React Native + TypeScript, everything in one App.tsx
  *
