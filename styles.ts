@@ -68,4 +68,5 @@ export const s = StyleSheet.create({
     },
     tabBar: { flexDirection: 'row', borderTopWidth: 1, paddingTop: 8, paddingBottom: 6 },
     tabBtn: { flex: 1, alignItems: 'center' },
+    tabBtnPill: { alignItems: 'center', borderRadius: 20, paddingHorizontal: 16, paddingVertical: 6 },
 });

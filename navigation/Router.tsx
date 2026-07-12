@@ -30,16 +30,30 @@ export const TabBar: React.FC = () => {
 
     const tabs = TABS.map((tab) => {
         const active = nav.tab === tab.key;
+        const label = (
+            <>
+                <Text style={{ fontSize: 20, opacity: active ? 1 : 0.4 }}>{tab.emoji}</Text>
+                <Text style={{ fontSize: 11, fontWeight: '700', marginTop: 2, color: active ? t.accent : t.textMuted }}>
+                    {tab.label}
+                </Text>
+            </>
+        );
+
         return (
             <TouchableOpacity
                 key={tab.key}
                 style={s.tabBtn}
                 onPress={() => { nav.setTab(tab.key); nav.popToRoot(); }}
+                accessibilityRole="tab"
+                accessibilityState={{ selected: active }}
             >
-                <Text style={{ fontSize: 20, opacity: active ? 1 : 0.4 }}>{tab.emoji}</Text>
-                <Text style={{ fontSize: 11, fontWeight: '700', marginTop: 2, color: active ? t.accent : t.textMuted }}>
-                    {tab.label}
-                </Text>
+                {active && Platform.OS === 'ios' ? (
+                    <Animated.View entering={FadeIn.duration(150)} exiting={FadeOut.duration(120)}>
+                        <GlassView style={s.tabBtnPill} glassEffectStyle="regular" tintColor={t.accent} isInteractive>
+                            {label}
+                        </GlassView>
+                    </Animated.View>
+                ) : label}
             </TouchableOpacity>
         );
     });
