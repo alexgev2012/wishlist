@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Platform, SafeAreaView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeIn, FadeOut, SlideInLeft, SlideInRight, SlideOutLeft, SlideOutRight } from 'react-native-reanimated';
 import { GlassView } from 'expo-glass-effect';
+import { LiquidGlassPill } from 'liquid-glass-pill';
 
 import { SnackbarView } from '@/components/shared';
 import { useNav } from '@/navigation/NavState';
@@ -49,9 +50,9 @@ export const TabBar: React.FC = () => {
             >
                 {active && Platform.OS === 'ios' ? (
                     <Animated.View entering={FadeIn.duration(150)} exiting={FadeOut.duration(120)}>
-                        <GlassView style={s.tabBtnPill} glassEffectStyle="regular" tintColor={t.accent} isInteractive>
+                        <LiquidGlassPill style={s.tabBtnPill} tintColor={t.accent} isInteractive>
                             {label}
-                        </GlassView>
+                        </LiquidGlassPill>
                     </Animated.View>
                 ) : label}
             </TouchableOpacity>
