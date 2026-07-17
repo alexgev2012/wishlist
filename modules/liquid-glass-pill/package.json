@@ -1,8 +1,0 @@
-{
-  "name": "liquid-glass-pill",
-  "version": "1.0.0",
-  "description": "Local Expo module rendering a SwiftUI Liquid Glass capsule behind RN content",
-  "main": "index.ts",
-  "license": "UNLICENSED",
-  "private": true
-}
